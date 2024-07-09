@@ -8,8 +8,8 @@ plt.rcParams.update({'font.size': 12})
 folder = 'res/working/'
 ext = '.dat'
 show = False
-do_computation_PMF = True
-save_pics = True
+do_computation_PMF = False
+save_pics = False
 beta = 1.
 N = 500
 n_F = n_R = N
@@ -223,6 +223,7 @@ ax[0].legend()
 ax[1].legend(loc='upper left')
 # plt.tight_layout()
 plt.subplots_adjust(wspace=0.02, bottom=0.15)
+# Insert common x-label
 fig.text(0.5+0.01, 0.04, 'Position', ha='center', va='center', transform=fig.transFigure)
 if save_pics:
     plt.savefig('imgs/Figure2.png', dpi=500, transparent=True)

@@ -16,22 +16,22 @@ def Vt(z, z_t):
 def H(z, z_t):
     return H0(z) + Vt(z, z_t)
 
-z_t = np.array(np.linspace(-1.5, 1.5, 750).tolist() + [1.5])
+z_t = np.array([-1.5] + np.linspace(-1.5, 1.5, 750).tolist() + [1.5])
 zz = np.linspace(-1.5, 1.5, 500)
 
 if len(os.listdir(saved_imgs_folder)) == 0:
-    for tt in tqdm(range(len(z_t)+1)):
+    for tt in tqdm(range(len(z_t))):
         plt.plot(zz, list(map(H0, zz)), label=r'$H_0$', 
                 color='royalblue', ls=':')
-        plt.plot(zz, list(map(Vt, zz, np.zeros_like(zz))), 
-                label=r'$V_t$', color='darkorange', ls='--')
-        
-        if tt != 0:
-            plt.plot(zz, H(zz, z_t[tt-1]), label=r'$H_t$', color='limegreen')
+        plt.plot(zz, Vt(zz, z_t[tt]), 
+            label=r'$V_t$', color='darkorange', ls='--')
+        plt.plot(zz, H(zz, z_t[tt]), label=r'$H_t$', color='limegreen')
         
         plt.ylim(-10, 15)
+        plt.xlabel(r'$x$')
+        plt.ylabel(r'$f(x)$')
         plt.grid(ls='--', alpha=0.5)
-        plt.legend()
+        plt.legend(loc='lower right')
         plt.savefig(f'imgs/gif/Hamiltonian{tt}.png', dpi=150)
         
         plt.close()
