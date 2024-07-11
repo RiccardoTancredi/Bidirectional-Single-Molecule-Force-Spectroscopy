@@ -5,10 +5,10 @@ from scipy.optimize import newton
 from tqdm import tqdm
 plt.rcParams.update({'font.size': 12})
 
-folder = 'res/working/'
+folder = 'res/'
 ext = '.dat'
 show = False
-do_computation_PMF = False
+do_computation_PMF = True
 save_pics = False
 beta = 1.
 N = 500

@@ -118,7 +118,7 @@ class Bidirectional_SMFS:
 
         # print('Starting simulation...')
         
-        for t in range(1, self.N_steps+1):
+        for t in tqdm(range(1, self.N_steps+1), colour='red'):
             self.do_MC(t)
             # if t == self.N_steps:
             #     self.equilibrium(time=t+1)
@@ -135,7 +135,7 @@ def main():
     # for reps in tqdm(range(50)):    
     for forward in [True, False]:
         # print(f'\n{"Forward" if forward else "Backward"} trajectories...\n')
-        Bidirectional_SMFS(forward=forward, do_equilibrium=forward, reps=0)
+        Bidirectional_SMFS(forward=forward, do_equilibrium=True, reps=0)
 
 
 if __name__== "__main__":
