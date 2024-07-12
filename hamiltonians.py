@@ -29,7 +29,7 @@ if len(os.listdir(saved_imgs_folder)) == 0:
         
         plt.ylim(-10, 15)
         plt.xlabel(r'$x$')
-        plt.ylabel(r'$f(x)$')
+        plt.ylabel(r'$H(x)$')
         plt.grid(ls='--', alpha=0.5)
         plt.legend(loc='lower right')
         plt.savefig(f'imgs/gif/Hamiltonian{tt}.png', dpi=150)

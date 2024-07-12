@@ -45,7 +45,6 @@ print(f'Var W_b = {np.var(W_b[0, :])}\nmean = {np.mean(W_b[0, :])},\nmean(exp) =
 
 tot_work_F = W_f[-1, :]
 tot_work_B = W_b[0, :]
-
 ΔF = newton(f, x0=5, args=(tot_work_F, tot_work_B), maxiter=1000)
 print(f'At time τ: BAR method outputs ΔF = {ΔF}')
 
@@ -53,19 +52,24 @@ Delta_F_t = np.array([Bidirectional_Method(ΔF, W_f[t, :], W_b[t, :], tot_work_F
 
 if show:
     nf, bins_f = np.histogram(tot_work_F, density=True, bins=30)
-    nb, bins_b = np.histogram(tot_work_B, density=True, bins=bins_f)
+    nb, bins_b = np.histogram(tot_work_B, density=True, bins=30)
 
-    plt.scatter((bins_f[1:]+bins_f[:-1])/2, nf, label='F')
-    plt.scatter((bins_b[1:]+bins_b[:-1])/2, nb*np.exp(-((bins_b[1:]+bins_b[:-1])/2+6.523619906750094)), label='B')
+    plt.figure()
+    plt.scatter((bins_f[1:]+bins_f[:-1])/2, nf, label='Forward')
+    plt.scatter((bins_f[1:]+bins_f[:-1])/2, nb*np.exp(-(tot_work_B.mean()-ΔF)), label='Backward')
     plt.yscale('log')
+    plt.xlabel(r'$W$')
+    plt.ylabel(r'$\rho(W)$')
     plt.legend()
-    plt.show()
+    plt.show(block=False)
 
+    plt.figure()
     plt.title(r'$Work:\: \overline{W}$')
     plt.plot(W_f.mean(axis=1), label='F')
-    plt.plot(W_b.mean(axis=1), label='B')
-    plt.show()
+    plt.plot((tot_work_B.mean() - W_b.mean(axis=1)), label='B')
+    plt.show(block=False)
 
+    plt.figure()
     plt.title(r'$\Delta F_t$')
     plt.plot(Delta_F_t)
     plt.show()
