@@ -101,7 +101,7 @@ Using the **WHAM** method, combining estimates at different positions, we obtain
 
 ## Conclusions
 
-- Unidirectional estimates are strongly biased as points considered at time $t$ are not at equilibrium.
+- Unidirectional estimates are strongly biased as points considered at time *t* are not at equilibrium.
 - The bidirectional method allows proper weighting of forward and backward contributions, leading to more accurate PMF reconstructions.
 - The PMF reconstruction method outperforms unidirectional methods, providing correct estimates even far from the equilibrium state.
 
