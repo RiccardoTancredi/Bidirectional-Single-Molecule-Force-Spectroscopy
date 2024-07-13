@@ -64,6 +64,7 @@ $$
 - The center of the potential trap is varied linearly from -1.5 to 1.5 in the forward direction and from 1.5 to -1.5 for reverse trajectories.
 
 **Overdamped Langevin Equation Integrator:**
+
 $$
 \begin{equation*} 
   x_{i+1} = x_i + f(x_i) \Delta t + \sqrt{2D \Delta t} \, \xi_i 
