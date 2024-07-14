@@ -67,7 +67,7 @@ $$
 
 $$
 \begin{equation*} 
-  x_{i+1} = x_i + f(x_i) \Delta t + \sqrt{2D \Delta t} \, \xi_i 
+  x_{i+1} = x_i + f(x_i) \Delta t + \sqrt{2D \Delta t} \xi_i 
 \end{equation*}
 $$
 
